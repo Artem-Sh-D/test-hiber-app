@@ -22,9 +22,6 @@ public class CreditController {
 
     @PostMapping("/pay")
     public String creditPay(@RequestParam Long value, @RequestParam Long userId) {
-        //todo и не забудь указать потом, что кредит выплачен, и в случае чего как-то информировать отправителя
-        //(как ты будешь его информировать - дело твоё, можешь просто вернуть стрингу "ПРИПАПУ")
-        //todo НА КААААЖДЫЙ запрос показывай клиенту сколько осталось платить
        return creditService.pay(value, userId);
     }
 }

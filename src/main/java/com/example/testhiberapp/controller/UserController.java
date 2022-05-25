@@ -16,12 +16,12 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("/allusers")
+    @GetMapping("/allUsers")
     public Iterable<User> getUsers() {
        return userService.getAllUsers();
     }
 
-    @PostMapping("/adduser")
+    @PostMapping("/addUser")
     public void saveUser(@RequestBody UserSaveDto dto) {
         userService.saveUser(dto);
     }
