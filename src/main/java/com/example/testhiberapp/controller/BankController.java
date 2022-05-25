@@ -14,7 +14,7 @@ public class BankController {
         this.bankService = bankService;
     }
 
-    @PostMapping("/addbank")
+    @PostMapping("/addBank")
     public void addBank(@RequestBody Bank bank) {
         bankService.saveBank(bank);
     }

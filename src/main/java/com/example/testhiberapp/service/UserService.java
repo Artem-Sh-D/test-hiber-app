@@ -19,17 +19,17 @@ public class UserService {
         this.bankRepo = bankRepo;
     }
 
-    public void saveUser(UserSaveDto otd) {
+    public void saveUser(UserSaveDto dto) {
         User user = new User();
-        user.setFirstname(otd.getFirstName());
-        user.setLastname(otd.getLastName());
-        user.setAge(otd.getAge());
-        user.setPhoneNumber(otd.getPhoneNumber());
-        user.setAddress(otd.getAddress());
-        user.setEmail(otd.getUserEmail());
-        user.setPassNum(otd.getPassNum());
+        user.setFirstname(dto.getFirstName());
+        user.setLastname(dto.getLastName());
+        user.setAge(dto.getAge());
+        user.setPhoneNumber(dto.getPhoneNumber());
+        user.setAddress(dto.getAddress());
+        user.setEmail(dto.getUserEmail());
+        user.setPassNum(dto.getPassNum());
 
-        Bank bank = bankRepo.findByName(otd.getBankName());
+        Bank bank = bankRepo.findByName(dto.getBankName());
         if (bank != null) {
             user.setBank(bank);
         } else {
