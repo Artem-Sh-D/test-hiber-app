@@ -4,12 +4,10 @@ import com.example.testhiberapp.dto.UserSaveDto;
 import com.example.testhiberapp.entity.User;
 import com.example.testhiberapp.repository.UserRepo;
 import com.example.testhiberapp.service.UserService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/users")
 public class UserController {
 
     private UserService userService;
@@ -25,7 +23,7 @@ public class UserController {
         return userRepo.findAll();
     }
 
-    @PostMapping("/addusers")
+    @PostMapping("/adduser")
     public void saveUser(@RequestBody UserSaveDto dto) {
         userService.saveUser(dto);
     }

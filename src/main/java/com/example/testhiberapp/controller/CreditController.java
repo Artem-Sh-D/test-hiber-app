@@ -1,12 +1,12 @@
 package com.example.testhiberapp.controller;
 
-import com.example.testhiberapp.entity.Credit;
-import com.example.testhiberapp.service.UserService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+
+import com.example.testhiberapp.dto.CreditSaveDto;
+import com.example.testhiberapp.service.CreditService;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/credit")
 public class CreditController {
 
     private UserService userService;
@@ -15,8 +15,8 @@ public class CreditController {
         this.userService = userService;
     }
 
-    @PostMapping("/addcredit")
-    public void addCredit(@RequestBody Credit credit) {
-        userService.saveUserCredit(credit);
+    @PostMapping("/newCredit")
+    public void addCredit(@RequestBody CreditSaveDto dto) {
+        creditService.saveCredit(dto);
     }
 }

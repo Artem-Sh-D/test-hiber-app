@@ -11,6 +11,13 @@ public class User {
 
     private String name;
     private String email;
+    @Column(name = "phoneNumber")
+    private String phoneNumber;
+
+    //todo НАВЕСЬ КОНСТРЕИНТ, ЧТОБЫ ВАЛИДАЦИЯ БЫЛА ЖЕСТКАЯ И ДАННЫЕ ИДЕАЛЬНО ПО ФОРМАТУ ПРОХОДИЛИ
+    //TODO CONSTRAINT на уникальность, на количество символов в хранимой стринге (Они навешиваются в БД)
+    @Column(name = "passNum")
+    private String passNum;
 
     @ManyToOne
     @JoinColumn(name = "bank_id")
@@ -24,11 +31,6 @@ public class User {
     public User() {
     }
 
-    public User(String name, String email) {
-        this.name = name;
-        this.email = email;
-    }
-
     public Long getId() {
         return id;
     }
@@ -37,12 +39,36 @@ public class User {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstname() {
+        return firstname;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
     }
 
     public String getEmail() {
@@ -51,6 +77,14 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPassNum() {
+        return passNum;
+    }
+
+    public void setPassNum(String passNum) {
+        this.passNum = passNum;
     }
 
     public Bank getBank() {
@@ -67,5 +101,13 @@ public class User {
 
     public void setCredit(Credit credit) {
         this.credit = credit;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 }

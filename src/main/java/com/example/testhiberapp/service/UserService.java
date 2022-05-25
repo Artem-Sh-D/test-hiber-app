@@ -2,7 +2,6 @@ package com.example.testhiberapp.service;
 
 import com.example.testhiberapp.dto.UserSaveDto;
 import com.example.testhiberapp.entity.Bank;
-import com.example.testhiberapp.entity.Credit;
 import com.example.testhiberapp.entity.User;
 import com.example.testhiberapp.repository.BankRepo;
 import com.example.testhiberapp.repository.UserRepo;
@@ -22,8 +21,13 @@ public class UserService {
 
     public void saveUser(UserSaveDto otd) {
         User user = new User();
+        user.setFirstname(otd.getFirstName());
+        user.setLastname(otd.getLastName());
+        user.setAge(otd.getAge());
+        user.setPhoneNumber(otd.getPhoneNumber());
+        user.setAddress(otd.getAddress());
         user.setEmail(otd.getUserEmail());
-        user.setName(otd.getUserName());
+        user.setPassNum(otd.getPassNum());
 
         Bank bank = bankRepo.findByName(otd.getBankName());
         if (bank != null) {
