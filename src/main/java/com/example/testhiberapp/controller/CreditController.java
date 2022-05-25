@@ -9,14 +9,22 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/credit")
 public class CreditController {
 
-    private UserService userService;
+    private CreditService creditService;
 
-    public CreditController(UserService userService) {
-        this.userService = userService;
+    public CreditController(CreditService creditService) {
+        this.creditService = creditService;
     }
 
     @PostMapping("/newCredit")
     public void addCredit(@RequestBody CreditSaveDto dto) {
         creditService.saveCredit(dto);
+    }
+
+    @PostMapping("/pay")
+    public String creditPay(@RequestParam Long value, @RequestParam Long userId) {
+        //todo и не забудь указать потом, что кредит выплачен, и в случае чего как-то информировать отправителя
+        //(как ты будешь его информировать - дело твоё, можешь просто вернуть стрингу "ПРИПАПУ")
+        //todo НА КААААЖДЫЙ запрос показывай клиенту сколько осталось платить
+       return creditService.pay(value, userId);
     }
 }

@@ -9,7 +9,15 @@ public class User {
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
+    @Column(name = "firstname")
+    private String firstname;
+    @Column(name = "lastname")
+    private String lastname;
+    @Column(name = "address")
+    private String address;
+    @Column(name = "age")
+    private Integer age;
+    @Column(name = "email")
     private String email;
     @Column(name = "phoneNumber")
     private String phoneNumber;

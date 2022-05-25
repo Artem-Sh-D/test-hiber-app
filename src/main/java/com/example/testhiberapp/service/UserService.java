@@ -38,7 +38,7 @@ public class UserService {
         userRepo.save(user);
     }
 
-    public void saveUserCredit(Credit Credit) {
-
+    public Iterable<User> getAllUsers() {
+        return userRepo.findAll();
     }
 }

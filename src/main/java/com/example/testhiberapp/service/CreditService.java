@@ -36,10 +36,16 @@ public class CreditService {
 
     public String pay(Long value, Long userId) {
         User user = userRepo.findUserById(userId);
-        if(user.getCredit().getValue() != 0){
+        if(user.getCredit().getValue() != 0) {
             user.getCredit().setValue((int) (user.getCredit().getValue() - value));
-            userRepo.save(user);
-            return "Вам осталось выплатить " + user.getCredit().getValue();
+            if(user.getCredit().getValue() == 0) {
+                user.getCredit().setPaid(true);
+                userRepo.save(user);
+                return "Вы выплатили свой кредит !";
+            } else {
+                userRepo.save(user);
+                return "Вам осталось выплатить " + user.getCredit().getValue();
+            }
         } else {
             return "Вы выплатили свой кредит !";
         }

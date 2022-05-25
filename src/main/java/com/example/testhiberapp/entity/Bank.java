@@ -11,6 +11,13 @@ public class Bank {
     private Long id;
     @Column(name = "name")
     private String name;
+    @Column(name = "address")
+    private String address;
+    @Column(name = "email")
+    private String email;
+
+    @OneToMany
+    private List<User> users;
 
     public Bank() {
     }

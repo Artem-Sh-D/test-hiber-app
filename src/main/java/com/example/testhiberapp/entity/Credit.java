@@ -10,14 +10,10 @@ public class Credit {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne
-    private User user;
-
-    @ManyToOne
-    @JoinColumn(name = "bank_id")
-    private Bank bank;
-
-    private int value;
+    @Column(name = "value")
+    private Integer value;
+    @Column(name = "isPaid")
+    private Boolean isPaid = false;
 
     public Credit() {
     }
@@ -30,27 +26,20 @@ public class Credit {
         this.id = id;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public Bank getBank() {
-        return bank;
-    }
-
-    public void setBank(Bank bank) {
-        this.bank = bank;
-    }
-
-    public int getValue() {
+    public Integer getValue() {
         return value;
     }
 
-    public void setValue(int value) {
+    public void setValue(Integer value) {
         this.value = value;
     }
+
+    public Boolean getPaid() {
+        return isPaid;
+    }
+
+    public void setPaid(Boolean paid) {
+        isPaid = paid;
+    }
+
 }

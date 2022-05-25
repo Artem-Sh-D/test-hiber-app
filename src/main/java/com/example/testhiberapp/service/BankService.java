@@ -8,11 +8,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class BankService {
 
+    private BankRepo bankRepo;
+
     public BankService(BankRepo bankRepo) {
         this.bankRepo = bankRepo;
     }
-
-    private BankRepo bankRepo;
 
     public void saveBank(Bank bank) {
         bankRepo.save(bank);

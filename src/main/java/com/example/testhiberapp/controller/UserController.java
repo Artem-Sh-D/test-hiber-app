@@ -11,16 +11,14 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
 
     private UserService userService;
-    private UserRepo userRepo;
 
-    public UserController(UserService userService, UserRepo userRepo) {
-        this.userRepo = userRepo;
+    public UserController(UserService userService) {
         this.userService = userService;
     }
 
     @GetMapping("/allusers")
-    public Iterable<User> viewUsers() {
-        return userRepo.findAll();
+    public Iterable<User> getUsers() {
+       return userService.getAllUsers();
     }
 
     @PostMapping("/adduser")
